@@ -1,0 +1,11 @@
+GET http://localhost:3000/views
+
+###
+
+GET http://localhost:3000/views/getAllViews
+
+###
+POST http://localhost:3000/views/addviews
+Content-Type: application/json
+
+{}
