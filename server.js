@@ -6,10 +6,17 @@ const mongoose = require('mongoose')
 // routes import
 const viewsRouter = require('./routes/views')
 
-mongoose.connect(process.env.DATABASE_URL)
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+async function connectToDatabase() {
+    try {
+      await mongoose.connect(process.env.DATABASE_URL);
+      console.log("✅ Connected to MongoDB");
+    } catch (err) {
+      console.error("❌ MongoDB connection error:", err);
+    }
+  }
   
+  connectToDatabase();  
+
 const db = mongoose.connection;
 
 db.on('error', (error) => console.log(error));
