@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const router = express.Router()
 const axios = require('axios');
@@ -35,15 +36,15 @@ router.post('/addViews', async (req, res) => {
 
         // Get the IP address from the request (assuming you're using a proxy like nginx)
         const ipAddress = req.ip;
-
+        var api_key = process.env.IP_STACK;
         // Use an API like ipstack to get the location (make sure to replace with your actual API key)
-        const locationResponse = await axios.get(`http://api.ipstack.com/${ipAddress}?access_key=YOUR_ACCESS_KEY`);
+        const locationResponse = await axios.get(`http://api.ipstack.com/${ipAddress}?access_key=${api_key}`);
         const location = locationResponse.data.city || 'Unknown Location';
 
         // Create a new view object
         const newView = new viewsmodel({
             view: nextView,
-            Device: `${deviceOS} ${deviceType} (${browser})`,
+            device: `${deviceOS} ${deviceType} (${browser})`,
             location: location
         });
 
