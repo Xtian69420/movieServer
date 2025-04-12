@@ -2,10 +2,10 @@ GET http://localhost:3000/views
 
 ###
 
-GET http://localhost:3000/views/getAllViews
+GET https://movieiguessserver.onrender.com/views/getAllViews
 
 ###
-POST http://localhost:3000/views/addviews
+POST https://movieiguessserver.onrender.com/views/addviews
 Content-Type: application/json
 
 {}
