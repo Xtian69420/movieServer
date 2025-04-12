@@ -10,8 +10,11 @@ const viewSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
-    Device:{
-        type: String,
+    device:{
+        type: String
+    },
+    location:{
+        type: String
     }
 })
 
