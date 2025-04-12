@@ -27,6 +27,10 @@ db.once('open', () => console.log('Database is running'));
 
 app.use(express.json())
 
+app.get('/ping', (req, res) => {
+    res.status(200).json({ message: 'Server is alive!' });
+});
+
 app.use('/views', viewsRouter)
 app.use('/addviews', viewsRouter)
 // localhos:3000/views
