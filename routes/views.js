@@ -36,7 +36,7 @@ router.post('/addViews', async (req, res) => {
 
         if (req.body.location) {
             const [latitude, longitude] = req.body.location.split(',');
-
+            var apikey = process.env.OPENCAGE_API_KEY;
             const geoRes = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`);
             city = geoRes.data.results[0]?.components?.city ||
                    geoRes.data.results[0]?.components?.town ||
